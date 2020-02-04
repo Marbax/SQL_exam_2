@@ -1,5 +1,8 @@
 # SQL_exam_2
- EventsDB Morozov M.E. с9п1_32
+ ### ***EventsDB Morozov M.E. с9п1_32***
+
+
+<img src="rainbow.gif" width="800" height="24" style="transform:rotate(90deg);" align="center">
 
 <img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="120" align="right">
 
