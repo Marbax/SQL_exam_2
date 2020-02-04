@@ -1,16 +1,18 @@
 # SQL_exam_2
- ### ***EventsDB Morozov M.E. с9п1_32***
+ ***EventsDB Morozov M.E. с9п1_32***
 
-<dev ><img src="rainbow.gif" width="100%" height="25" margin = "200" id="X" draggable=”false” align="center">
+<dev ><img src="resources/rainbow.gif" width="100%" height="25" margin = "200" align="center">
 </dev>
 
-<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="120" id = "X" draggable=”false” align="right">
+<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="120" align="right">
 
-<details><summary> DB Technical task  </summary><p>
+
+### 
+<details><summary><b style="color:powderblue"> DB Technical task </b></summary><p>
 
 ---
 
-Для веб-проекта «Афиша событий» необходимо создать базу данных. В базе данных нужно хранить такую информацию:
+Для веб-проекта <mark>«Афиша событий»</mark> необходимо создать базу данных. В базе данных нужно хранить такую информацию:
  
 - Категории событий 
     - спектакль 
@@ -80,7 +82,8 @@
 
 </p></details>
 
-<details><summary> DB scheme  </summary><p>
+### 
+<details><summary><b style="color:powderblue"> DB scheme  </b></summary><p>
 
 ---
 
@@ -89,4 +92,6 @@
 ---
 
 </p></details>
+
+
 
