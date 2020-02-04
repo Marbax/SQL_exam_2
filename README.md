@@ -1,5 +1,5 @@
 # SQL_exam_2
- EventsDB
+ EventsDB Morozov M.E. с9п1_32
 
 
 <details><summary> DB Technical task  </summary><p>
