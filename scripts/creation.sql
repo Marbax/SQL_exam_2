@@ -87,10 +87,13 @@ CREATE TABLE [Clients]
 (
 	[Id] int NOT NULL CONSTRAINT [PK_CLIENTS] PRIMARY KEY,
 	[FName] nvarchar(150) NOT NULL check ([FName] <> N''),
-	[Email] nvarchar(255) NOT NULL UNIQUE,
-	[BDate] date NOT NULL check ([BDate]<getdate())
+	[Email] varchar(255) NOT NULL UNIQUE,
+	[BDate] date NOT NULL check ([BDate]<getdate()),
+	[Client_Archive_Id] int,
+
 );
 GO
+
 
 /*
  - Клиенты  
@@ -106,6 +109,7 @@ CREATE TABLE [Client_Archive] (
 	[Tickets_Count] int NOT NULL DEFAULT '1'
 );
 GO
+
 
 /*
 - Событие 
@@ -211,7 +215,7 @@ GO
 
 ALTER TABLE [Clients] WITH CHECK 
 ADD CONSTRAINT [Clients_fk0] 
-FOREIGN KEY ([Id]) REFERENCES [Client_Archive]([Id])
+FOREIGN KEY ([Client_Archive_Id]) REFERENCES [Client_Archive]([Id])
 on update no action on delete no action;
 GO
 
@@ -220,7 +224,6 @@ GO
 
 ALTER TABLE [Client_Archive] WITH CHECK 
 ADD CONSTRAINT [Client_Archive_fk0] 
-FOREIGN KEY ([Id]) REFERENCES [Clients]([Id])
 on update no action on delete no action;
 GO
 
