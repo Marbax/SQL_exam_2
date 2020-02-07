@@ -60,7 +60,7 @@ GO
 */
 CREATE TABLE [Locations] 
 (
-	[Id] int NOT NULL CONSTRAINT [PK_LOCATIONS] PRIMARY KEY,
+	[Id] int NOT NULL  identity(1, 1) CONSTRAINT [PK_LOCATIONS] PRIMARY KEY,
 	[City_Id] int NOT NULL,
 	[Name] nvarchar(255) NOT NULL
 );
@@ -85,12 +85,10 @@ GO
 */
 CREATE TABLE [Clients]
 (
-	[Id] int NOT NULL CONSTRAINT [PK_CLIENTS] PRIMARY KEY,
+	[Id] int NOT NULL  identity(1, 1) CONSTRAINT [PK_CLIENTS] PRIMARY KEY,
 	[FName] nvarchar(150) NOT NULL check ([FName] <> N''),
 	[Email] varchar(255) NOT NULL UNIQUE,
-	[BDate] date NOT NULL check ([BDate]<getdate()),
-	[Client_Archive_Id] int,
-
+	[BDate] date NOT NULL check ([BDate]<getdate())
 );
 GO
 
@@ -103,10 +101,11 @@ GO
         - кол-во билетов (по данному ивенту)
 */
 CREATE TABLE [Client_Archive] (
-	[Id] int NOT NULL CONSTRAINT [PK_CLIENT_ARCHIVE] PRIMARY KEY,
+	[Id] int NOT NULL  identity(1, 1) CONSTRAINT [PK_CLIENT_ARCHIVE] PRIMARY KEY,
 	[Event_Name] nvarchar(255) NOT NULL check ([Event_Name] <> N''),
 	[Ticket_Value] money NOT NULL,
-	[Tickets_Count] int NOT NULL DEFAULT '1'
+	[Tickets_Count] int NOT NULL DEFAULT '1',
+	[Client_Id] int not null
 );
 GO
 
@@ -116,7 +115,7 @@ GO
     - страна проведения 
 */
 CREATE TABLE [Countries] (
-	[Id] int NOT NULL CONSTRAINT [PK_COUNTRIES] PRIMARY KEY,
+	[Id] int NOT NULL  identity(1, 1) CONSTRAINT [PK_COUNTRIES] PRIMARY KEY,
 	[Name] nvarchar(100) NOT NULL UNIQUE
 );
 GO
@@ -126,7 +125,7 @@ GO
     - город проведения 
 */
 CREATE TABLE [Cities] (
-	[Id] int NOT NULL CONSTRAINT [PK_CITIES] PRIMARY KEY,
+	[Id] int NOT NULL  identity(1, 1) CONSTRAINT [PK_CITIES] PRIMARY KEY,
 	[Name] nvarchar(100) NOT NULL,
 	[Country_Id] int NOT NULL
 );
@@ -136,7 +135,7 @@ GO
 --- - Архив событий.
 CREATE TABLE [Event_Archive] 
 (
-	[Id] int NOT NULL  identity(1, 1) CONSTRAINT [PK_EVENT_ARCHIVE] PRIMARY KEY,
+	[Id] int NOT NULL identity(1, 1) CONSTRAINT [PK_EVENT_ARCHIVE] PRIMARY KEY,
 	[Name] nvarchar(255) NOT NULL check ([Name] <> N''),
 	[Value] money NOT NULL DEFAULT '0',
 	[Start_Date] date NOT NULL,
@@ -213,17 +212,9 @@ primary key (Category_Id , Event_Id);
 GO
 
 
-ALTER TABLE [Clients] WITH CHECK 
-ADD CONSTRAINT [Clients_fk0] 
-FOREIGN KEY ([Client_Archive_Id]) REFERENCES [Client_Archive]([Id])
-on update no action on delete no action;
-GO
-
-ALTER TABLE [Clients] CHECK CONSTRAINT [Clients_fk0];
-GO
-
 ALTER TABLE [Client_Archive] WITH CHECK 
 ADD CONSTRAINT [Client_Archive_fk0] 
+FOREIGN KEY ([Client_Id]) REFERENCES [Clients]([Id])
 on update no action on delete no action;
 GO
 
