@@ -77,7 +77,16 @@ insert into Event(Name,Value,Start_Date,End_Date,Country_Id,City_Id,Location_Id,
 values
 ('Games of the Games',150.99,'06-11-2020','09-11-2020',1,1,1,'18:00','Great games are held with participants from different countries.',3,'/root/images/gg_01.jpg',5000,0),
 ('Summit of Witches',666,'06-06-2020','06-06-2020',1,1,3,'22:00','Ball of all witches.',100,'/root/images/witch_01.jpg',666,0),
-('Hackaton',50,'06-11-2020','11-13-2020',1,1,3,'12:00','Ball of all nerds.',16,'/root/images/hacktn_01.jpg',200,0)
+('Hackaton',50,'06-11-2020','11-13-2020',1,1,3,'12:00','Ball of all nerds.',16,'/root/images/hacktn_01.jpg',200,0),
+('sold event',50,'06-11-2020','11-13-2020',1,2,3,'12:00','already sold.',16,'/root/images/sold_01.jpg',200,200)
+;
+go
+
+insert into [Event_Archive](Name,Value,Start_Date,End_Date,Country_Id,City_Id,Location_Id,EvTime,Description,Age_Restriction,Title_Image,Max_Tickets,Sold_Tickets)
+values
+('archived1',220.99,'06-11-2018','09-11-2018',1,1,1,'18:00','Great games are held with participants from different countries.',3,'/root/images/tmp1.jpg',5000,90),
+('archived2',123,'06-06-2016','06-06-2016',1,1,3,'22:00','Ball of all witches.',100,'/root/images/tmp2.jpg',666,101),
+('archived3',01,'06-11-2015','11-13-2015',1,1,3,'12:00','Ball of all nerds.',16,'/root/images/tmp3.jpg',1500,333)
 ;
 go
 
