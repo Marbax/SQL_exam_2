@@ -6,6 +6,12 @@
 
 <img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="120" align="right">
 
+<details><summary><b style="color:powderblue"> Tested on: </b></summary><p>
+
+> Microsoft SQL Server 2019 (RTM) - 15.0.2000.5 (X64)   Sep 24 2019 13:48:23   Copyright (C) 2019 Microsoft Corporation  Express Edition (64-bit) on Windows 10 Pro 10.0 <X64> (Build 18362: )    
+- **With Microsoft SQL Server versions less then 2017 may not work string_agg func which used to aggregate categories in one event**
+
+</p></details>
 
 ### 
 <details><summary><b style="color:powderblue"> DB Technical task </b></summary><p>

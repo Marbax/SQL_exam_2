@@ -82,13 +82,13 @@ values
 ;
 go
 
-insert into [Event_Archive](Name,Value,Start_Date,End_Date,Country_Id,City_Id,Location_Id,EvTime,Description,Age_Restriction,Title_Image,Max_Tickets,Sold_Tickets)
-values
-('archived1',220.99,'06-11-2018','09-11-2018',1,1,1,'18:00','Great games are held with participants from different countries.',3,'/root/images/tmp1.jpg',5000,90),
-('archived2',123,'06-06-2016','06-06-2016',1,1,3,'22:00','Ball of all witches.',100,'/root/images/tmp2.jpg',666,101),
-('archived3',01,'06-11-2015','11-13-2015',1,1,3,'12:00','Ball of all nerds.',16,'/root/images/tmp3.jpg',1500,333)
-;
-go
+---insert into [Event_Archive](Name,Value,Start_Date,End_Date,Country_Id,City_Id,Location_Id,EvTime,Description,Age_Restriction,Title_Image,Max_Tickets,Sold_Tickets)
+---values
+---('archived1',220.99,'06-11-2018','09-11-2018',1,1,1,'18:00','Great games are held with participants from different countries.',3,'/root/images/tmp1.jpg',5000,90),
+---('archived2',123,'06-06-2016','06-06-2016',1,1,3,'22:00','Ball of all witches.',100,'/root/images/tmp2.jpg',666,101),
+---('archived3',01,'06-11-2015','11-13-2015',1,1,3,'12:00','Ball of all nerds.',16,'/root/images/tmp3.jpg',1500,333)
+---;
+---go
 
 
 insert into Category_to_Event(Category_Id,Event_Id)
@@ -119,6 +119,10 @@ go
 insert into Client_Archive(Event_Name,Ticket_Value,Tickets_Count,Client_Id)
 values
 ('Some event',200,2,1),
+('Old event',200,1,1),
+('Old event',155,1,3),
+('Another event',200,1,3),
+('Very old event',200,1,3),
 ('Back to the future',500,2,2)
 ;
 go

@@ -105,7 +105,9 @@ CREATE TABLE [Client_Archive] (
 	[Event_Name] nvarchar(255) NOT NULL check ([Event_Name] <> N''),
 	[Ticket_Value] money NOT NULL,
 	[Tickets_Count] int NOT NULL DEFAULT '1',
-	[Client_Id] int not null
+	[Client_Id] int not null,
+	[Bought_Date] date default getdate()
+
 );
 GO
 
@@ -151,6 +153,14 @@ CREATE TABLE [Event_Archive]
 	[Sold_Tickets] int NOT NULL DEFAULT '0'
 );
 GO
+
+CREATE TABLE [Category_to_Event_Arch] 
+(
+	[Category_Id] int ,
+	[Event_Id] int 
+);
+GO
+
 
 ALTER TABLE [Event] WITH CHECK 
 ADD CONSTRAINT [Event_fk0] 
@@ -256,4 +266,28 @@ GO
 
 ALTER TABLE [Event_Archive] CHECK CONSTRAINT [Event_Archive_fk2];
 GO
+
+
+ALTER TABLE [Category_to_Event_Arch] WITH CHECK 
+ADD CONSTRAINT [Category_to_Event_Arch_fk0] 
+FOREIGN KEY ([Category_Id]) REFERENCES [Category]([Id])
+on update no action on delete no action;
+GO
+
+ALTER TABLE [Category_to_Event_Arch] CHECK CONSTRAINT [Category_to_Event_Arch_fk0];
+GO
+
+ALTER TABLE [Category_to_Event_Arch] WITH CHECK 
+ADD CONSTRAINT [Category_to_Event_Arch_fk1] 
+FOREIGN KEY ([Event_Id]) REFERENCES [Event_Archive]([Id])
+on update no action on delete no action;
+GO
+
+ALTER TABLE [Category_to_Event_Arch] CHECK CONSTRAINT [Category_to_Event_Arch_fk1];
+GO
+
+---ALTER TABLE [Category_to_Event_Arch] WITH CHECK 
+---ADD CONSTRAINT [pf_Category_to_Event_Arch_Ids] 
+---primary key (Category_Id , Event_Id);
+---GO
 
